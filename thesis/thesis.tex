@@ -3,12 +3,19 @@
 % Version 2.20 of 2017/10/04
 %
 \documentclass[runningheads]{llncs}
+\usepackage[english]{babel}
+
 % for in-text and parentheis citations (works with technopress bib style)
 \usepackage[round, authoryear]{natbib}
 % for hyperlinking cross-references
 \usepackage{hyperref}
 % For figures
 \usepackage{graphicx}
+% For block quotes (see https://tex.stackexchange.com/questions/325695/how-to-style-blockquote)
+\usepackage{etoolbox}
+\usepackage{setspace} % for \onehalfspacing and \singlespacing macros
+\AtBeginEnvironment{quote}{\par\singlespacing\small}
+
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
@@ -74,8 +81,17 @@
     For example, it divides the datasets into different domains, like Media, Government, Publications, Social Networking, or Life Sciences.
     As of May 2021 this catalogue contained 1301 datasets and has become the subject of multiple investigations~\citep{debattista2019lod, kamdar2019enabling, schmachtenberg2014adoption}.
 
-\subsection{Life Sciences Linked Open Data Cloud}
-In this thesis, I will only take into account datasets from the life sciences domain.
+    \subsection{Life Sciences Linked Open Data Cloud}
+    In this thesis, I will only take into account datasets from the life sciences domain.
+    Biomedical researchers have already been adopting semantic web technologies in their early stages~\citep{ashburner2000gene, bodenreider2004unified, wang2005xml}, motivated by a problem that still exists in the domain and was addressed by Vijay Bulusu, head of data and digital innovation at company Pfizer:
+    \begin{quote}
+        Vijay Bulusu opened his plenary session at the Bio-IT World Conference \& Expo last week by asking the audience whether - if given \$1 million to spend - they'd buy a machine learning platform or improve the quality of their data.
+        Nearly everyone voted for improving data quality.
+        Bulusu was pleased.
+        Life sciences doesn't really have a big data problem, he explained.
+        It has a "lots-of-small-data problem," and data should be our focus~\citep{Pfizer}.
+    \end{quote}
+
 
     Please note that the first paragraph of a section or subsection is
     not indented.
