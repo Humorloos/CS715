@@ -120,6 +120,19 @@
     A very large part of the datasets in the LSLOD Cloud are published two projects:
     NCBO BioPortal~\citep{BioPortal} and Bio2RDF~\citep{Bio2RDF}.
 
+    \subsection{BioPortal}
+    BioPortal is a project funded by the National Institute of Health (NIH) and provides centralized access to a collection of biomedical ontologies.
+    Since the provided datasets are ontologies, they do not contain any instance data, but define classes and properties that can be used as vocabularies to type instances in other datasets.
+    In January 2022, the collection consisted of 953 ontologies, containing $13,732,155$ classes, and $36,286$ properties\footnote{NCBO BioPortal, \url{https://bioportal.bioontology.org/}, (Accessed on 01/08/2022)}.
+    Only a subset of these ontologies are registered in the LSLOD cloud.
+    BioPortal is not the original publisher of the provided ontologies, but rather provide unified access to ontologies from different sources like SNOMED CT\footnote{SNOMED International, \url{https://www.snomed.org/}, (Accessed on 01/08/2022)}, a large, general purpose clinical ontology or RxNORM\footnote{RxNorm, \url{https://www.nlm.nih.gov/research/umls/rxnorm/index.html}, (Accessed on 01/08/2022)}, an ontology about clinical drugs which is part of the UMLS, another project related to the NIH that also provides linked data, however not using semantic web technologies.
+
+    \subsection{Bio2RDF}
+    Bio2RDF is an open source project maintained by Maastricht University and Universit\'e Laval and claims to provide the largest network of linked data in the domain of life sciences\citep{Bio2RDF_Github}.
+    Like BioPortal, Bio2RDF are not the authors of the datasets they publish, but rather translated datasets from sources such as DrugBank\footnote{DrugBank Online, \url{https://go.drugbank.com/}, (Accessed on 01/08/2022)} or FarmGKB\footnote{PharmGKB, \url{https://www.pharmgkb.org/}, (Accessed on 01/08/2022)} into RDF\@.
+    In contrast to BioPortal however, Bio2RDF provides LSLOD datasets with instance data and not ontologies.
+
+
 
     Please note that the first paragraph of a section or subsection is
     not indented.
