@@ -11,10 +11,11 @@
 \usepackage{hyperref}
 % For figures
 \usepackage{graphicx}
-% For block quotes (see https://tex.stackexchange.com/questions/325695/how-to-style-blockquote)
+% For block quotes (see https://tex.stackexchange.com/questions/325695/how-to-style-blockquote and https://tex.stackexchange.com/questions/140300/how-to-prevent-pagebreak-in-quote-environment)
 \usepackage{etoolbox}
 \usepackage{setspace} % for \onehalfspacing and \singlespacing macros
-\AtBeginEnvironment{quote}{\par\singlespacing\small}
+\newenvironment{nbquote} {\quote\interlinepenalty=10000 } {\endquote}
+\AtBeginEnvironment{nbquote}{\par\singlespacing\small}
 
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
@@ -74,7 +75,6 @@
         \caption{The LOD Cloud\protect\footnotemark[\value{footnote}]}
         \label{fig:lod_cloud}
     \end{figure}
-    \footnotetext{The Linked Open Data Cloud, https://lod-cloud.net/, (Accessed on 01/06/2022)}
 
     For a dataset to be included, it has to meet certain requirements.
     For example, instances have to be annotated with URIs that resolve to RDF data, the dataset must contain at least 1000 triples, and it has to be connected via RDF links to datasets in the diagram with at least 50 links.
@@ -83,15 +83,25 @@
     As of May 2021 this catalogue contained 1301 datasets and has become the subject of multiple investigations~\citep{debattista2019lod, kamdar2019enabling, schmachtenberg2014adoption}.
 
     \subsection{Life Sciences Linked Open Data Cloud}
-    In this thesis, I will only take into account datasets from the life sciences domain.
+    In this thesis, I will focus on datasets from the life sciences domain, colored red in Figure~\ref{fig:lod_cloud}.
+    This part of the LOD Cloud is often also referred to as life-sciences LOD cloud (LSLOD Cloud) and is depicted in more detail in Figure~\ref{fig:lslod_cloud}.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=\textwidth]{figures/life-sciences-lod}
+        \caption{The LSLOD Cloud\protect\footnotemark[\value{footnote}]}
+        \label{fig:lslod_cloud}
+    \end{figure}
+    \footnotetext{The Linked Open Data Cloud, https://lod-cloud.net/, (Accessed on 01/06/2022)}
+
     Biomedical researchers have already been adopting semantic web technologies in their early stages~\citep{ashburner2000gene, bodenreider2004unified, wang2005xml}, motivated by a problem that still exists in the domain and was addressed by Vijay Bulusu, head of data and digital innovation at company Pfizer:
-    \begin{quote}
+    \begin{nbquote}
         Vijay Bulusu opened his plenary session at the Bio-IT World Conference \& Expo last week by asking the audience whether - if given \$1 million to spend - they'd buy a machine learning platform or improve the quality of their data.
         Nearly everyone voted for improving data quality.
         Bulusu was pleased.
         Life sciences doesn't really have a big data problem, he explained.
         It has a "lots-of-small-data problem," and data should be our focus~\citep{Pfizer}.
-    \end{quote}
+    \end{nbquote}
 
 
     Please note that the first paragraph of a section or subsection is
