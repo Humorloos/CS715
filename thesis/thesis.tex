@@ -69,6 +69,7 @@
     When \citet{berners2001semantic} introduced the idea of the semantic web as an evolution of the original document web, their vision was to allow agents to infer the meaning of instances and their relationships published in datasets on the web.
     This is enabled by assigning instances and relations to URIs from standardized vocabularies, making their meaning no more limited to the dataset's scope but globally valid.
     The semantic web relies on various technological standards of which some were specifically developed for it and others already existed.
+
     Firstly, just like the document web, it relies on HTTP for data transmission.
     RDF~\citep{RDF}, a standard published by the World Wide Web Consortium (W3C) is the recommended language for transferring linked data and describes datasets as collections of triples consisting of subjects, predicates, and objects.
     Vocabularies for linked data are organized in ontologies, defined in the standards RDFS~\citep{RDFS} and OWL~\citep{OWL}.
@@ -193,6 +194,7 @@
     The technologies behind LOD were initially introduced to tackle the challenge of integrating the ever-growing mass off datasets available on the web.
     As mentioned before, this challenge is particularly present in the domain of Life Sciences.
     As a consequence, there have been numerous research projects that have employed semantic web technologies to integrate LSLOD\@.
+
     For example, the W3C Linking Open Drug Data Project mentioned earlier, and a web data integration platform introduced by \citet{williams2012open} aim at integrating drug-related data~\citep{jentzsch2009linking}.
     \citet{saleem2014big} and \citet{sioutos2007nci} ran research projects investigating the integration of cancer-related datasets and \citet{kamdar2019enabling} investigated web-scale data integration with LOD in general in the areas of pharmacology, cancer research, and infectious diseases.
     An alternative approach was taken by \citet{percha2018global} who deployed an NER-based annotator and dependency parsing to automatically extract linked data from medline abstracts and compared the results to manually curated databases of linked data.
@@ -211,9 +213,11 @@
     \section{Integrability of LSLOD}
     As mentioned before, the primary goal of developing semantic web technologies was to make data more easily integrable.
     However, even though the technologies have already been deployed in various research problems, their use is almost always connected to a substantial amount of manual effort.
+
     This problem has motivated various authors to investigate its cause.
     \citet{heath2011linked} introduced a set of seven best practices that are required for LOD to be usable as originally intended.
     These best practices include measures of making the data accessible, like providing dereferenceable URIs and listing additional access methods, measures of guaranteeing integrability of the provided data, like linking the dataset to other datasets and using public vocabularies, and measures of increasing the usability of the data by providing relevant metadata.
+
     The adoption of these practices and extensions thereof have been investigated by multiple studies~\citep{schmachtenberg2014adoption, debattista2018evaluating, debattista2019lod}
     \citet{kamdar2019enabling} identified three major challenges for using LSLOD in applications, that partly reflect a lack of fulfillment of these principles: accessibility and availability, semantic heterogeneity, and learnability and usability.
 
