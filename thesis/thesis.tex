@@ -146,9 +146,12 @@
 
     Pharmaceutical companies, certainly among the main players in the biomedical domain have a seemingly conflicting relation to linked open data.
     I researched the practices of data sharing of the 3 largest companies by market capitalization\footnote{Largest pharma companies by market cap, \url{https://companiesmarketcap.com/pharmaceuticals/largest-pharmaceutical-companies-by-market-cap/}, (Accessed on 01/09/2022)}, namely, Johnson \& Johnson, Roche and Pfizer.
-    These companies are in possession of large amounts of data of immense public value, and while they do claim to share data from clinical trials over various channels\footnote{Roche - Our commitment to data sharing, \url{https://www.roche.com/research_and_development/who_we_are_how_we_work/research_and_clinical_trials/our_commitment_to_data_sharing.htm}, (Accessed on 01/09/2022)}\footnote{Advancing Clinical Trial Data Sharing Through the Yale University Open Data Access Project | Johnson \& Johnson, \url{https://www.jnj.com/innovation/yale-open-data-access-project}, (Accessed on 01/09/2022)}\footnote{Data Access Requests | Pfizer, \url{https://www.pfizer.com/science/clinical-trials/trial-data-and-results/data-requests}, (Accessed on 01/09/2022)}, none of them seem to do so via linked open data.
-%    todo: add something about how they are using lod anyways
-%    todo: Johson & Johnson took part in W3C Linking Open Drug Data initiative 16. Jentzsch, A. et al. Linking Open Drug Data. In I-SEMANTICS (2009). Drug data integration project
+    On the one hand, these companies are in possession of large amounts of data of immense public value, and while they do claim to share data from clinical trials over various channels\footnote{Roche - Our commitment to data sharing, \url{https://www.roche.com/research_and_development/who_we_are_how_we_work/research_and_clinical_trials/our_commitment_to_data_sharing.htm}, (Accessed on 01/09/2022)}\footnote{Advancing Clinical Trial Data Sharing Through the Yale University Open Data Access Project | Johnson \& Johnson, \url{https://www.jnj.com/innovation/yale-open-data-access-project}, (Accessed on 01/09/2022)}\footnote{Data Access Requests | Pfizer, \url{https://www.pfizer.com/science/clinical-trials/trial-data-and-results/data-requests}, (Accessed on 01/09/2022)}, none of them seem to do so via linked open data.
+    The only
+    On the other hand, the companies seem to be aware of the potential value of the technologies.
+    For example, representatives of Johnson \& Johnson and AstraZeneca have taken part in the W3C Linking Open Drug Data project~\citep{jentzsch2009linking, marshall2012emerging}.
+    Some companies even seem to be using the technologies and public datasets already internally.
+    For example, Pfizer's IDF Data Cloud, a project that is still in development, uses semantic web technologies to integrate LSLOD from various sources~\citep{Pfizer}.
 
     \section{Change of LSLOD over the Last Years}
     \subsection{Datasets in the LOD-cloud}
@@ -173,13 +176,17 @@
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[width=0.7\textwidth]{figures/bio-portal-maintenance}
+        \includegraphics[width=0.8\textwidth]{figures/bio-portal-maintenance}
         \caption{Years since last update of datasets in BioPortal by number of classes in each dataset.}
         \label{fig:bioportal-maintenance}
     \end{figure}
 
     Unfortunately, it's different for the datasets provided by Bio2RDF and the EBI RDF Platform.
     Bio2RDF was last updated in 2014~\citep{Bio2RDF_Github} and the EBI RDF Platform has seen its last update in 2017 and states on its webpage that the project has run out of funding\footnote{New RDF platform released!, \url{https://www.ebi.ac.uk/rdf//2017/07/10/first-post/}, (Accessed on 01/09/2022)}.
+
+    \section{Applications}
+
+
 
 %
 % ---- Bibliography ----
