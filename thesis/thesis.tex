@@ -4,7 +4,6 @@
 %
 \documentclass[runningheads]{llncs}
 \usepackage[english]{babel}
-
 % for in-text and parentheis citations (works with technopress bib style)
 \usepackage[round, authoryear]{natbib}
 % for hyperlinking cross-references
@@ -14,6 +13,15 @@
 % For block quotes (see https://tex.stackexchange.com/questions/325695/how-to-style-blockquote and https://tex.stackexchange.com/questions/140300/how-to-prevent-pagebreak-in-quote-environment)
 \usepackage{etoolbox}
 \usepackage{setspace} % for \onehalfspacing and \singlespacing macros
+
+%% for multiple comma-separated footnotes (see https://tex.stackexchange.com/questions/40072/incompatibility-between-footmisc-option-multiple-and-hyperref/62091#62091)
+%! suppress = DiscouragedUseOfDef
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+\renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
+\newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
+
+% For block quotes
 \newenvironment{nbquote} {\quote\interlinepenalty=10000 } {\endquote}
 \AtBeginEnvironment{nbquote}{\par\singlespacing\small}
 
