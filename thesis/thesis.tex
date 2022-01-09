@@ -13,6 +13,8 @@
 % For block quotes (see https://tex.stackexchange.com/questions/325695/how-to-style-blockquote and https://tex.stackexchange.com/questions/140300/how-to-prevent-pagebreak-in-quote-environment)
 \usepackage{etoolbox}
 \usepackage{setspace} % for \onehalfspacing and \singlespacing macros
+% For multiple images in one figure
+\usepackage{subcaption}
 
 %% for multiple comma-separated footnotes (see https://tex.stackexchange.com/questions/40072/incompatibility-between-footmisc-option-multiple-and-hyperref/62091#62091)
 %! suppress = DiscouragedUseOfDef
@@ -204,6 +206,44 @@
     \end{nbquote}
     IBM trained their supercomputer Watson on LSLOD datasets to assist with decision-making in oncology~\citep{aocnp2015watson} and NuMedii, a biotechnology in San Mateo, California, uses semantic web technologies for drug research by integrating multiple public and private datasets~\cite{dastgheib2018accelerating}.
     Finally, there is an annotator tool for biomedical texts that is based on LSLOD and was developed by \citet{kamdar2020text}.
+
+
+    \section{Integrability of LSLOD}
+    As mentioned before, the primary goal of developing semantic web technologies was to make data more easily integrable.
+    However, even though the technologies have already been deployed in various research problems, their use is almost always connected to a substantial amount of manual effort.
+    This problem has motivated various authors to investigate its cause.
+    \citet{heath2011linked} introduced a set of seven best practices that are required for LOD to be usable as originally intended.
+    These best practices include measures of making the data accessible, like providing dereferenceable URIs and listing additional access methods, measures of guaranteeing integrability of the provided data, like linking the dataset to other datasets and using public vocabularies, and measures of increasing the usability of the data by providing relevant metadata.
+    The adoption of these practices and extensions thereof have been investigated by multiple studies~\citep{schmachtenberg2014adoption, debattista2018evaluating, debattista2019lod}
+    \citet{kamdar2019enabling} identified three major challenges for using LSLOD in applications, that partly reflect a lack of fulfillment of these principles: accessibility and availability, semantic heterogeneity, and learnability and usability.
+
+    \subsection{Accessibility and Availability}
+    Accessibility and availability of LOD sources in terms of dereferenceability of proprietary vocabularies has been investigated by \citet{schmachtenberg2014adoption}.
+    They found that only about 28\% of proprietary vocabularies used in LSLOD datasets were actually dereferenceable.
+    6\% of the vocabularies were only partially, and 67\% were not dereferenceable at all.
+    \citet{debattista2019lod} investigated accessibility of LOD datasets by testing the availability of datasets via the methods provided in the LOD-cloud's metadata.
+    I repeated this experiment, limiting the selection to datasets from the life sciences domain.
+    Figure~\ref{fig:accessibility} shows the results of both experiments.
+    According to Figure~\ref{fig:accessibility-2019}, in 2019, 66.8\% of the LOD datasets were not accessible at all.
+    In 2021, I found for LSLOD datasets, that none of them was accessible by just using the SPARQL endpoint metadata provided in the metadata and also none was accessible via more than 1 method.
+    In general 78\% of the datasets listed in the LSLOD cloud were not accessible by any of the methods described in the LOD cloud metadata.
+
+    \begin{figure}[ht]
+        \begin{subfigure}{0.545\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{figures/accessibility-2019}
+            \caption{Accessibility of LOD datasets~\citep{debattista2019lod}}
+            \label{fig:accessibility-2019}
+        \end{subfigure}
+        \begin{subfigure}{0.455\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{figures/accessibility-2021}
+            \caption{Accessibility of LSLOD datasets in 2021}
+            \label{fig:accessibility-2021}
+        \end{subfigure}
+        \caption{Results of experiments investigating accessibility of LOD datasets via methods described in LOD-cloud metadata}
+        \label{fig:accessibility}
+    \end{figure}
 
 
 %
