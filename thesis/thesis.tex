@@ -25,7 +25,7 @@
 
 % For block quotes
 \newenvironment{nbquote} {\quote\interlinepenalty=10000 } {\endquote}
-\AtBeginEnvironment{nbquote}{\par\singlespacing\small}
+\AtBeginEnvironment{nbquote}{\par\singlespacing\footnotesize}
 
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
@@ -58,13 +58,8 @@
         150--250 words.
 
     \end{abstract}
-%
-%
-%
-
 
     \section{Available Data}
-
     \subsection{Linked Open Data}
     When \citet{berners2001semantic} introduced the idea of the semantic web as an evolution of the original document web, their vision was to allow agents to infer the meaning of instances and their relationships published in datasets on the web.
     This is enabled by assigning instances and relations to URIs from standardized vocabularies, making their meaning no more limited to the dataset's scope but globally valid.
@@ -126,7 +121,6 @@
     \end{figure}
     \footnotetext{The Linked Open Data Cloud, \url{https://lod-cloud.net/}, (Accessed on 01/06/2022)}
 
-
     \section{Data Publishers}
     A very large part of the datasets in the LSLOD-cloud are published two projects:
     NCBO BioPortal~\citep{BioPortal} and Bio2RDF~\citep{Bio2RDF}.
@@ -154,7 +148,6 @@
     For example, representatives of Johnson \& Johnson and AstraZeneca have taken part in the W3C Linking Open Drug Data project~\citep{jentzsch2009linking, marshall2012emerging}.
     Some companies even seem to be using the technologies and public datasets already internally.
     For example, Pfizer's IDF Data Cloud, a project that is still in development, uses semantic web technologies to integrate LSLOD from various sources~\citep{Pfizer}.
-
 
     \section{Change of LSLOD over the Last Years}
 
