@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from dateutil.utils import today
 from matplotlib import pyplot as plt
 
-from constants import DATA_DIR, LIFE_SCIENCES_TARGET_DIR
+from constants import DATA_DIR, LIFE_SCIENCES_TARGET_DIR, PROJECT_DIR
 from utils import load_metadata_json
 
 #%%
@@ -46,10 +46,10 @@ def get_ontology_n_classes(tag):
     return np.nan
 
 
-ontologies['n_classes'] = ontologies['tag'].apply(
+ontologies['Number of classes in dataset'] = ontologies['tag'].apply(
     lambda tag: get_ontology_n_classes(tag))
 
-ontologies['years_since_last_update'] = \
+ontologies['Years since last update'] = \
     (today() - ontologies['last_update']).dt.days / 365
 
 ontologies['abbreviation'] = \
@@ -86,15 +86,15 @@ fdsa = bioportal_ontos.loc[bioportal_ontos_matched_by_abbreviation]
 
 #%%
 
-ontologies.plot.scatter('years_since_last_update', 'n_classes')
+ontologies.plot.scatter('Years since last update', 'Number of classes in dataset')
 plt.yscale('log')
-plt.savefig(LIFE_SCIENCES_TARGET_DIR / 'bioportal_activeness.png', )
+plt.savefig(PROJECT_DIR / 'thesis' / 'figures' / 'bio-portal-maintenance.png')
 plt.show()
 
 #%%
 
 
-ontologies[['years_since_last_update', 'n_classes']].corr()
+ontologies[['Years since last update', 'Number of classes in dataset']].corr()
 tag = ontologies['tag'].iloc[5]
 tag.next_sibling
 #%%
