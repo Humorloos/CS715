@@ -1,8 +1,7 @@
-import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from constants import TARGET_DIR
+from constants import PROJECT_DIR
 from utils import load_metadata_json
 
 # matplotlib.use('qt5agg')
@@ -40,5 +39,7 @@ data_2021['total'] = data_2021.sum(1)
 data_combined = data_2021.append(schmachtenberg_df)
 data_combined.index = data_combined.index.astype('datetime64[ns]')
 
-data_combined.drop(columns='total').plot().get_figure().savefig(
-    TARGET_DIR.joinpath(f'development_lod-cloud_size_by_domain.png'))
+fig = data_combined.drop(columns='total').plot().get_figure()
+plt.xlabel('Year')
+plt.ylabel('Number of Datasets in LOD-cloud')
+fig.savefig(PROJECT_DIR / 'thesis' / 'figures' / 'lod-cloud-change.png')
