@@ -91,6 +91,7 @@
     As of May 2021 this catalogue contained 1301 datasets and has become the subject of multiple investigations~\citep{debattista2019lod, kamdar2019enabling, schmachtenberg2014adoption}.
 
     \subsection{Life Sciences Linked Open Data Cloud}
+%    todo: refer to colors in cloud diagram
     In this thesis, I will focus on datasets from the life sciences domain, colored red in Figure~\ref{fig:lod_cloud}.
     This part of the LOD-cloud is often also referred to as life-sciences LOD-cloud (LSLOD-cloud) and is depicted in more detail in Figure~\ref{fig:lslod_cloud}.
 
@@ -153,7 +154,9 @@
     Some companies even seem to be using the technologies and public datasets already internally.
     For example, Pfizer's IDF Data Cloud, a project that is still in development, uses semantic web technologies to integrate LSLOD from various sources~\citep{Pfizer}.
 
+
     \section{Change of LSLOD over the Last Years}
+
     \subsection{Datasets in the LOD-cloud}
     \citet{schmachtenberg2014adoption} compared the adoption of LOD best practices in LOD-cloud datasets in 2011 and 2014.
     I augmented their data with LOD-cloud metadata from the years 2018--2021, retrieved from archive.org\footnote{Internet Archive: Wayback Machine, \url{https://archive.org/web/}, (Accessed on 01/09/2022)}.
@@ -184,8 +187,24 @@
     Unfortunately, it's different for the datasets provided by Bio2RDF and the EBI RDF Platform.
     Bio2RDF was last updated in 2014~\citep{Bio2RDF_Github} and the EBI RDF Platform has seen its last update in 2017 and states on its webpage that the project has run out of funding\footnote{New RDF platform released!, \url{https://www.ebi.ac.uk/rdf//2017/07/10/first-post/}, (Accessed on 01/09/2022)}.
 
-    \section{Applications}
 
+    \section{Applications using LSLOD}
+    The technologies behind LOD were initially introduced to tackle the challenge of integrating the ever-growing mass off datasets available on the web.
+    As mentioned before, this challenge is particularly present in the domain of Life Sciences.
+    As a consequence, there have been numerous research projects that have employed semantic web technologies to integrate LSLOD\@.
+    For example, the W3C Linking Open Drug Data Project mentioned earlier, and a web data integration platform introduced by \citet{williams2012open} aim at integrating drug-related data~\citep{jentzsch2009linking}.
+    \citet{saleem2014big} and \citet{sioutos2007nci} ran research projects investigating the integration of cancer-related datasets and \citet{kamdar2019enabling} investigated web-scale data integration with LOD in general in the areas of pharmacology, cancer research, and infectious diseases.
+    An alternative approach was taken by \citet{percha2018global} who deployed an NER-based annotator and dependency parsing to automatically extract linked data from medline abstracts and compared the results to manually curated databases of linked data.
+
+    On the other hand, the technologies have also already been adopted by several companies, using subsets of the LOD datasets in biomedical applications.
+    Not only Pfizer is using LSLOD datasets in their IDF Data Cloud~\citep{Pfizer}.
+    For example, Google is using LSLOD sources to augment their knowledge graph:
+    \begin{nbquote}
+        We worked with a team of medical doctors (led by our own Dr. Kapil Parakh, M.D., MPH, Ph.D.) to carefully compile, curate, and review this information.
+        All of the gathered facts represent real-life clinical knowledge from these doctors and high-quality medical sources across the web, and the information has been checked by medical doctors at Google and the Mayo Clinic for accuracy~\citep{Aremedyf53:online}.
+    \end{nbquote}
+    IBM trained their supercomputer Watson on LSLOD datasets to assist with decision-making in oncology~\citep{aocnp2015watson} and NuMedii, a biotechnology in San Mateo, California, uses semantic web technologies for drug research by integrating multiple public and private datasets~\cite{dastgheib2018accelerating}.
+    Finally, there is an annotator tool for biomedical texts that is based on LSLOD and was developed by \citet{kamdar2020text}.
 
 
 %
