@@ -73,31 +73,31 @@
     Finally, SPARQL~\citep{SPARQL}, another standard by the W3C is a query language that can be used to query linked datasets.
 
     \subsection{Linked Open Data Cloud}
-    Probably the most prominent service around linked open data is the Linked Open Data Cloud (LOD cloud)
+    Probably the most prominent service around linked open data is the Linked Open Data Cloud (LOD-cloud)
     \footnotemark{} (see Figure~\ref{fig:lod_cloud}).
-    The LOD cloud is a diagram visualizing linked open datasets and their interconnections.
+    The LOD-cloud is a diagram visualizing linked open datasets and their interconnections.
 
     \begin{figure}[ht]
         \centering
         \includegraphics[width=\textwidth]{figures/lod-cloud-sm}
-        \caption{The LOD Cloud\protect\footnotemark[\value{footnote}]}
+        \caption{The LOD-cloud\protect\footnotemark[\value{footnote}]}
         \label{fig:lod_cloud}
     \end{figure}
 
     For a dataset to be included, it has to meet certain requirements.
     For example, instances have to be annotated with URIs that resolve to RDF data, the dataset must contain at least 1000 triples, and it has to be connected via RDF links to datasets in the diagram with at least 50 links.
-    The LOD cloud also provides metadata about the datasets.
+    The LOD-cloud also provides metadata about the datasets.
     For example, it divides the datasets into different domains, like Media, Government, Publications, Social Networking, or Life Sciences.
     As of May 2021 this catalogue contained 1301 datasets and has become the subject of multiple investigations~\citep{debattista2019lod, kamdar2019enabling, schmachtenberg2014adoption}.
 
     \subsection{Life Sciences Linked Open Data Cloud}
     In this thesis, I will focus on datasets from the life sciences domain, colored red in Figure~\ref{fig:lod_cloud}.
-    This part of the LOD Cloud is often also referred to as life-sciences LOD cloud (LSLOD Cloud) and is depicted in more detail in Figure~\ref{fig:lslod_cloud}.
+    This part of the LOD-cloud is often also referred to as life-sciences LOD-cloud (LSLOD-cloud) and is depicted in more detail in Figure~\ref{fig:lslod_cloud}.
 
     \begin{figure}[ht]
         \centering
         \includegraphics[width=\textwidth]{figures/life-sciences-lod}
-        \caption{The LSLOD Cloud\protect\footnotemark[\value{footnote}]}
+        \caption{The LSLOD-cloud\protect\footnotemark[\value{footnote}]}
         \label{fig:lslod_cloud}
     \end{figure}
     \footnotetext{The Linked Open Data Cloud, https://lod-cloud.net/, (Accessed on 01/06/2022)}
@@ -111,7 +111,7 @@
         It has a "lots-of-small-data problem," and data should be our focus~\citep{Pfizer}.
     \end{nbquote}
 
-    Datasets in the LSLOD cloud describe entities such as molecules (e.g., drugs or proteins) and their characteristics, biological pathways, organs, or diseases~\citep{bodenreider2008biomedical}.
+    Datasets in the LSLOD-cloud describe entities such as molecules (e.g., drugs or proteins) and their characteristics, biological pathways, organs, or diseases~\citep{bodenreider2008biomedical}.
     In their attempt to implement a query engine that was supposed to make SPARQL endpoints of LSLOD datasets more accessible, \citet{kamdar2014roadmap} catalogued linked concepts and properties from 137 public SPARQL endpoints to map concepts and properties to so-called Query Elements.
     Figure~\ref{fig:lslod_entities} gives an overview of the number of entities from the datasets linked to different types of Query Elements.
 
@@ -125,14 +125,14 @@
 
 
     \section{Data Publishers}
-    A very large part of the datasets in the LSLOD Cloud are published two projects:
+    A very large part of the datasets in the LSLOD-cloud are published two projects:
     NCBO BioPortal~\citep{BioPortal} and Bio2RDF~\citep{Bio2RDF}.
 
     \subsection{BioPortal}
     BioPortal is a project funded by the National Institute of Health (NIH) and provides centralized access to a collection of biomedical ontologies.
     Since the provided datasets are ontologies, they do not contain any instance data, but define classes and properties that can be used as vocabularies to type instances in other datasets.
     In January 2022, the collection consisted of 953 ontologies, containing $13,732,155$ classes, and $36,286$ properties\footnote{NCBO BioPortal, \url{https://bioportal.bioontology.org/}, (Accessed on 01/08/2022)}.
-    Only a subset of these ontologies are registered in the LSLOD cloud.
+    Only a subset of these ontologies are registered in the LSLOD-cloud.
     BioPortal is not the original publisher of the provided ontologies, but rather provide unified access to ontologies from different sources like SNOMED CT\footnote{SNOMED International, \url{https://www.snomed.org/}, (Accessed on 01/08/2022)}, a large, general purpose clinical ontology or RxNORM\footnote{RxNorm, \url{https://www.nlm.nih.gov/research/umls/rxnorm/index.html}, (Accessed on 01/08/2022)}, an ontology about clinical drugs which is part of the UMLS, another project related to the NIH that also provides linked data, however not using semantic web technologies.
 
     \subsection{Bio2RDF}
