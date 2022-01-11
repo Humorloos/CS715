@@ -272,6 +272,8 @@
     However, the authors note that this high percentage is biased by the reuse of 30,251 ChEBI classes in only 4 sources.
     Instead of computing a term overlap statistic, they clustered the datasets into communities based on cosine similarity of 100-dimensional word embedding vectors generated from the instances' labels.
     Again, these communities suggested much more topical overlap than what is reflected in the vocabulary reuse.
+    Besides that, they also revealed certain "identifier communities" that often contained different URI representations for similar entities.
+    The authors called this phenomenon of incorrect mappings "intent for reuse".
 
     Figure~\ref{fig:vocabulary_reuse} illustrates reuse of the vocabularies that are used in the investigated datasets.
     The figure shows that most vocabularies are used by only very few sources.
