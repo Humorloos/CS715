@@ -308,6 +308,15 @@
     Second, I wrote SPARQL queries that were supposed to retrieve triples with objects from a different dataset by filtering the results via regular expressions so that only triples are retrieved whose object's URI starts with different domain name from the dataset's.
     However, this approach resulted in gateway-timeout errors, possibly because queries with regular expressions are very resource-intensive.
 
+    \section{Conclusion}
+    The stack of technologies behind linked open data was initially created to facilitate the integration of web data.
+    However, the previous sections have shown that they are faced with substantial challenges that offer a rather bleak outlook at their application.
+    The promise of effortlessly integrating data from different sources across the will certainly not be fulfillable in the near future.
+    Nevertheless, there are also some promising movements in the semantic web community that are worth mentioning and show that still a lot of research is being conducted in this area.
+    For example, \citet{verborgh2016triple} introduced Triple Pattern Fragments, which make maintaining SPARQL endpoints much less expensive and may contribute to solving the availability problem.
+    Also, as described in the applications section, some companies with sufficient resources for curating the sources are already using some LSLOD datasets in production.
+    Finally, in contrast to BioPortal and Bio2RDF, there are still very active LOD projects, like the earlier-mentioned Gene Ontology~\citep{gene2015gene} which has a strong community of domain users and a very active development team or DBPedia~\citep{auer2007dbpedia}, which according to \citet{kamdar2019enabling} have started registering $\equiv99\%$ uptime, monitored via the SPARQLES framework~\citep{vandenbussche2017sparqles}.
+
 %
 % ---- Bibliography ----
 %
