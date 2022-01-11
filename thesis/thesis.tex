@@ -15,6 +15,10 @@
 \usepackage{setspace} % for \onehalfspacing and \singlespacing macros
 % For multiple images in one figure
 \usepackage{subcaption}
+% For curly math letters for vocabulary reuse graph
+\usepackage{mathrsfs}
+% For \text in equations
+\usepackage{amsmath}
 
 %% for multiple comma-separated footnotes (see https://tex.stackexchange.com/questions/40072/incompatibility-between-footmisc-option-multiple-and-hyperref/62091#62091)
 %! suppress = DiscouragedUseOfDef
@@ -59,7 +63,9 @@
 
     \end{abstract}
 
+
     \section{Available Data}
+
     \subsection{Linked Open Data}
     When \citet{berners2001semantic} introduced the idea of the semantic web as an evolution of the original document web, their vision was to allow agents to infer the meaning of instances and their relationships published in datasets on the web.
     This is enabled by assigning instances and relations to URIs from standardized vocabularies, making their meaning no more limited to the dataset's scope but globally valid.
@@ -150,7 +156,6 @@
     For example, Pfizer's IDF Data Cloud, a project that is still in development, uses semantic web technologies to integrate LSLOD from various sources~\citep{Pfizer}.
 
     \section{Change of LSLOD over the Last Years}
-
     \subsection{Datasets in the LOD-cloud}
     \citet{schmachtenberg2014adoption} compared the adoption of LOD best practices in LOD-cloud datasets in 2011 and 2014.
     I augmented their data with LOD-cloud metadata from the years 2018--2021, retrieved from archive.org\footnote{Internet Archive: Wayback Machine, \url{https://archive.org/web/}, (Accessed on 01/09/2022)}.
@@ -245,6 +250,52 @@
     \citet{kamdar2021empirical} refer to semantic heterogeneity as the degree to which LSLOD sources use heterogeneous schemas, lack mappings between similar entities, and use different vocabularies for the same topics.
     However, another important factor is whether existing reuse or mappings are actually correct.
     The following paragraphs will look into these two aspects of semantic heterogeneity.
+
+    \paragraph{Vocabulary Reuse}
+    \citet{kamdar2017systematic} compared term reuse and term overlap in biomedical ontologies published by BioPortal.
+    They defined term reuse as either the reuse of identical URIs or the existence of explicit mappings via either properties such as \texttt{owl:sameAs} or \texttt{owl:equivalentClass} (CUI), or explicit reference (xref).
+    They defined term overlap as a cosine similarity of more than $.95$ between count vectors of instance labels enriched with varying sources such as synonyms, label annotations, or comments.
+    To compute a statistic for term reuse/overlap across the ontologies, they first computed a graph $\mathscr{M}_{r}$ where each term in each ontology is represented as one of the $N$ nodes and reuse/overlap of terms according to the various definitions is represented as an edge between nodes.
+    The resulting graph consisted of connected components of which the authors denoted those $k$ components with more than one term as $T_j$.
+    The number of terms in component $T_j$ is denoted by $n_j$.
+    Term reuse/overlap was then computed via Formula~\ref{eq:reuse}:
+    \begin{equation}\label{eq:reuse}
+        \text{Reuse/Overlap}=\frac{\sum_{j \mid T_{j} \in \mathscr{M}_{r}} n_{j}-k}{N}
+    \end{equation}
+
+    While the authors found a term overlap of approximately $25 - 31\%$, depending on the enrichment scheme, the term reuse only amounted to $5.98 - 8.39\%$, depending on the types of mappings considered.
+    Furthermore, they report that most ontologies reuse only less than $5\%$ of their vocabulary.
+
+    \citet{kamdar2021empirical} investigated vocabulary reuse in LSLOD sources with instance data, such as the datasets provided by Bio2RDF, that either had a functional SPARQL endpoint or were available as RDF data dumps and could be stored in a local SPARQL repository, and had at least 1000 instances under any classification scheme that could be queried through the SPARQL endpoint.
+
+    As \citet{kamdar2017systematic}, they computed the reuse statistic with Formula~\ref{eq:reuse}, resulting in a vocabulary reuse of 19.86\%.
+    However, the authors note that this high percentage is biased by the reuse of 30,251 ChEBI classes in only 4 sources.
+    Instead of computing a term overlap statistic, they clustered the datasets into communities based on cosine similarity of 100-dimensional word embedding vectors generated from the instances' labels.
+    Again, these communities suggested much more topical overlap than what is reflected in the vocabulary reuse.
+
+    Figure~\ref{fig:vocabulary_reuse} illustrates reuse of the vocabularies that are used in the investigated datasets.
+    The figure shows that most vocabularies are used by only very few sources.
+    In fact, among those vocabularies that are used by more than 10 sources, only one vocabulary, the Gene Ontology, actually contains semantically meaningful domain-specific classes.
+    All other frequently reused vocabularies instead specify languages for providing metadata (e.g., DCTERMS, SIO-CHEMINF) or schemata (e.g., RDFS, OWL2).
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=\textwidth]{figures/vocabulary-reuse}
+        \caption{Vocabularies used in LSLOD sources by number of sources using each vocabulary and number of elements from each vocabulary that are reused~\citep{kamdar2021empirical}.}
+        \label{fig:vocabulary_reuse}
+    \end{figure}
+
+    Figure~\ref{fig:lslod-cloud-corrected} illustrates the interlinkage of lslod sources via vocabulary resource.
+    According to the authors, this illustration can be perceived similar to the LSLOD cloud diagram depicted in Figure~\ref{fig:lslod_cloud} and shows that the LSLOD is actually much less interconnected than the LSLOD cloud diagram suggests.
+    The figure also shows how especially Bio2RDF and EBI sources are very well interlinked.
+    This fact makes it even more regrettable that, as mentioned before, both projects currently seem to be abandoned.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=\textwidth]{figures/lslod-connectedness}
+        \caption{Vocabulary reuse among LSLOD sources. Each edge represents the existence of connections of entities between two LSLOD sources. The size of an edge represents the number of unique properties connecting entities in the two datasets~\citep{kamdar2021empirical}.}
+        \label{fig:lslod-cloud-corrected}
+    \end{figure}
 
 %
 % ---- Bibliography ----
