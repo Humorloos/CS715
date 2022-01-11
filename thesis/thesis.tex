@@ -299,6 +299,15 @@
         \label{fig:lslod-cloud-corrected}
     \end{figure}
 
+    \subsection{Link Quality}
+    Since I could not find any literature on the quality of mappings between LSLOD sources, I tried to verify the quality of the mappings in Bio2RDF and EBI datasets myself.
+    For this purpose, I queried the SPARQL endpoints of Bio2RDF-Homologene Bio2RDF-Affymetrix, and EBI-Chembl with two different approaches.
+    Unfortunately the EBI-Chembl SPARQL endpoint was not responsive at all, which may be related to the EBI RDF-Platform having run out of funding.
+    For the remaining two datasets, I first investigated the use of \texttt{owl:sameAs} and \texttt{owl:equivalentClass}.
+    The results indicated that the only mappings in the two datasets via these properties point to the domain \url{identifiers.org}, proving this method useless for investigating the mappings' quality.
+    Second, I wrote SPARQL queries that were supposed to retrieve triples with objects from a different dataset by filtering the results via regular expressions so that only triples are retrieved whose object's URI starts with different domain name from the dataset's.
+    However, this approach resulted in gateway-timeout errors, possibly because queries with regular expressions are very resource-intensive.
+
 %
 % ---- Bibliography ----
 %
